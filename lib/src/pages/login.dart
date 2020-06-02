@@ -73,12 +73,17 @@ class LoginPage extends StatelessWidget {
 
   Widget _crearEmail(LoginBloc bloc){
 
+    
+  //final TextEditingController _controller = new TextEditingController();
+
     return StreamBuilder(
       stream: bloc.emailStream ,
       builder: (BuildContext context, AsyncSnapshot snapshot){
         return Container(
           padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: TextField(
+            //controller: _controller,
+            onChanged: bloc.changeEmail,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
               icon: Icon(Icons.alternate_email, color: Colors.teal[400]),
@@ -87,7 +92,6 @@ class LoginPage extends StatelessWidget {
               counterText: snapshot.data,
               errorText: snapshot.error
             ),
-            onChanged: bloc.changeEmeail,
           ),
         ); 
       },
@@ -99,12 +103,15 @@ class LoginPage extends StatelessWidget {
 
     Widget _crearPassword(LoginBloc bloc){
     
+    //final TextEditingController _controller = new TextEditingController();
+    
       return StreamBuilder(
         stream: bloc.passwordStream ,
         builder: (BuildContext context, AsyncSnapshot snapshot){
           return Container(
             padding: EdgeInsets.symmetric(horizontal: 20.0),
             child: TextField(
+              //controller: _controller,
               onChanged: bloc.changePassword,
               obscureText: true,
               decoration: InputDecoration(

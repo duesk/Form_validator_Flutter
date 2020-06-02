@@ -30,7 +30,7 @@ class LoginBloc with Validators{
     
 
   //insertar valores al stream
-  Function(String)get changeEmeail => _emailControler.sink.add; //Añade el valor al Stream
+  Function(String)get changeEmail => _emailControler.sink.add; //Añade el valor al Stream
   Function(String)get changePassword => _passwordControler.sink.add;
 
 
