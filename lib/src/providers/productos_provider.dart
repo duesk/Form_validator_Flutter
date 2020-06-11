@@ -1,5 +1,6 @@
 
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:http/http.dart' as http;
 import 'package:form_validation/src/model/producto_model.dart';
@@ -7,7 +8,7 @@ import 'package:form_validation/src/model/producto_model.dart';
 class ProductosProvider{
 
   final String _url = "https://flutter-test-b95a2.firebaseio.com";
-  
+
 
   Future<bool> crearProducto( ProductoModel producto ) async{ 
 
@@ -58,6 +59,14 @@ class ProductosProvider{
     final url = "$_url/productos/$id.json";
     final resp =  await http.delete(url);
 
+  }
+
+
+
+  Future<String> subirImage( File imagen ) async {
+
+    final url = Uri.parse("https://api.cloudinary.com/v1_1/dql22gfad/image/upload?upload_preset=ml_default");
+    
   }
 
 
